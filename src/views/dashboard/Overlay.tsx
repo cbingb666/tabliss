@@ -44,12 +44,12 @@ const Overlay: React.FC = () => {
   const { errors } = React.useContext(ErrorContext);
   const { pending, toggleErrors, toggleSettings } = React.useContext(UiContext);
 
-  useKeyPress(toggleFocus, ["w"]);
-  useKeyPress(toggleSettings, ["s"]);
+  // useKeyPress(toggleFocus, ["w"]);
+  // useKeyPress(toggleSettings, ["s"]);
 
   // Hooks inside a condition? Works because the condition always resolves the same
   const [isFullscreen, handleToggleFullscreen] = useFullscreen();
-  if (handleToggleFullscreen) useKeyPress(handleToggleFullscreen, ["f"]);
+  // if (handleToggleFullscreen) useKeyPress(handleToggleFullscreen, ["f"]);
 
   return (
     <div className="Overlay">

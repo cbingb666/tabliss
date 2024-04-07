@@ -62,7 +62,7 @@ const Display: FC<Props> = ({ icon, name, number, url, linkOpenStyle }) => {
           <i>
             <img
               alt={domain}
-              src={`https://icons.duckduckgo.com/ip3/${domain}.ico`}
+              src={`https://s2.googleusercontent.com/s2/favicons?domain=${domain}&sz=32`}
             />
           </i>
         ) : null
