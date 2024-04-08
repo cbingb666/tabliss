@@ -11,6 +11,7 @@ import WidgetDisplay from "./WidgetDisplay";
 
 interface Props {
   plugin: WidgetState;
+  open?: boolean;
   onMoveUp?: () => void;
   onMoveDown?: () => void;
   onRemove: () => void;
@@ -18,18 +19,19 @@ interface Props {
 
 const Widget: React.FC<Props> = ({
   plugin,
+  open,
   onMoveDown,
   onMoveUp,
   onRemove,
 }) => {
-  const [isOpen, toggleIsOpen] = useToggle(onRemove === undefined);
+  const [isOpen, toggleIsOpen] = useToggle(open);
 
   const { description, name, settingsComponent } = getConfig(plugin.key);
 
   const setDisplay = setWidgetDisplay.bind(null, plugin.id);
 
   return (
-    <fieldset className="Widget">
+    <fieldset className="Widget setting">
       <div className="title--buttons">
         <IconButton onClick={onRemove} title="Remove widget">
           <RemoveIcon />
@@ -59,7 +61,7 @@ const Widget: React.FC<Props> = ({
       </div>
 
       {isOpen && (
-        <div>
+        <div className="content">
           {settingsComponent && (
             <div className="settings">
               <PluginContainer id={plugin.id} component={settingsComponent} />

@@ -3,6 +3,7 @@ import { defineMessages, useIntl } from "react-intl";
 
 import { Icon } from "../../../views/shared";
 import { Link } from "./types";
+import { getDomain, getIcon } from "../../shared/util";
 
 const displayUrl = (url: string): string => {
   try {
@@ -13,14 +14,7 @@ const displayUrl = (url: string): string => {
   }
 };
 
-const getDomain = (url: string): string | null => {
-  try {
-    const parsed = new URL(url);
-    return parsed.hostname;
-  } catch (e) {
-    return null;
-  }
-};
+
 
 const messages = defineMessages({
   shortcutHint: {
@@ -62,7 +56,7 @@ const Display: FC<Props> = ({ icon, name, number, url, linkOpenStyle }) => {
           <i>
             <img
               alt={domain}
-              src={`https://s2.googleusercontent.com/s2/favicons?domain=${domain}&sz=32`}
+              src={getIcon(domain)}
             />
           </i>
         ) : null

@@ -5,6 +5,7 @@ import Background from "./Background";
 import "./Dashboard.sass";
 import Overlay from "./Overlay";
 import Widgets from "./Widgets";
+import EditProvider from "./Edit";
 
 const Dashboard: React.FC = () => {
   const background = useValue(db, "background");
@@ -16,11 +17,13 @@ const Dashboard: React.FC = () => {
   }, [theme]);
 
   return (
-    <div className={`Dashboard fullscreen ${theme}`}>
-      <Background />
-      <Widgets />
-      <Overlay />
-    </div>
+    <EditProvider>
+      <div className={`Dashboard fullscreen ${theme}`}>
+        <Background />
+        <Widgets />
+        <Overlay />
+      </div>
+    </EditProvider>
   );
 };
 

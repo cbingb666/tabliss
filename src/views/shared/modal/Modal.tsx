@@ -1,5 +1,6 @@
 import React from "react";
 import "./Modal.css";
+import Icon from "../icons/Icon";
 
 type Props = {
   children: React.ReactNode;
